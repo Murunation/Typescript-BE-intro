@@ -10,12 +10,12 @@ movieRouter.get("/getTheater", (req: Request, res: Response) => {
 });
 
 movieRouter.get("/getTheaters", async (req: Request, res: Response) => {
-  console.log("Getting 5 movies");
-  Theater.find({})
-    .limit(7)
+  console.log("Getting 10 movies");
+  return Theater.find()
+    .limit(10)
     .then((response) => {
       res.status(200).send(response);
-      console.log("Succesfully");
+      console.log("Succesfully got theaters");
     });
 });
 
