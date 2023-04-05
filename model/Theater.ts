@@ -1,11 +1,11 @@
-import { mongoose, Schema } from "mongoose";
-type awardsType = {
+import mongoose from "mongoose";
+type AwardsType = {
   wins: number;
   nominations: number;
   text: string;
 };
 
-type imdbType = {
+type ImdbType = {
   rating: number;
   votes: number;
   id: number;
@@ -15,31 +15,9 @@ type viewerType = {
   numReviews: number;
   meter: number;
 };
-type tomatoesType = { viewer: viewerType; lastUpdated: Date };
+type TomatoesType = { viewer: viewerType; lastUpdated: Date };
 
-interface movieType {
-  plot: string;
-  genres: string[];
-  runtime: number;
-  poster?: string;
-  cast: string[];
-  num_mflix_comments: number;
-  title: string;
-  fullplot: string;
-  languages: string[];
-  released: Date;
-  directors: string[];
-  rated?: string;
-  awards: awardsType;
-  lastupdated: string;
-  year: number;
-  imdb: imdbType;
-  countries: string[];
-  type: string;
-  tomatoes: tomatoesType;
-}
-
-const moviesSchema = new Schema<movieType>(
+const moviesSchema = new mongoose.Schema(
   {
     plot: String,
     genres: [String],
@@ -65,6 +43,6 @@ const moviesSchema = new Schema<movieType>(
     collection: "movies",
   }
 );
-const Movie = mongoose.model("Movie", moviesSchema, "theaters");
+const Movie = mongoose.model("Movie", moviesSchema, "movies");
 
 export default Movie;
