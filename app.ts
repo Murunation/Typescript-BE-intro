@@ -6,7 +6,7 @@ import "./config/mongoose-config";
 
 const app: Express = express();
 dotenv.config();
-const port = process.env.PORT;
+const port = 3000;
 app.use(cors());
 app.use(movieRouter);
 

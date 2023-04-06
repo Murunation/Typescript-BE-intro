@@ -22,8 +22,7 @@ movieRouter.get("/getMovies", async (req: Request, res: Response) => {
 movieRouter.get("/movies/:id", async (req: Request, res: Response) => {
   console.log(req.params.id);
   const movie = await Movie.findOne({ _id: req.params.id }).limit(1);
-  console.log("Jus movie ", movie);
-
+  console.log("Just movie ", movie);
   return res.status(200).send(movie);
 });
 
